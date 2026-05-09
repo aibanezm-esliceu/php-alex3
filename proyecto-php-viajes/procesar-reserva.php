@@ -5,8 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 // Los nombres coinciden con los 'name' del formulario
-$nombre_viajero = $_POST["nombre_viajero"] ?? "";
-$destino_deseado = $_POST["destino_deseado"] ?? "";
+$nombre = $_POST["nombre_viajero"] ?? "";
+$destino = $_POST["destino_deseado"] ?? "";
 $email = $_POST["email"] ?? "";
 $missatge = $_POST["missatge"] ?? "";
 
