@@ -1,16 +1,17 @@
 services:
   web:
     build: .
-    container_name: php-web-agencia
+    container_name: php-web-viajes
     ports:
-      - "8110:80"
+      - "81100:80"
     volumes:
-      - ../proyecto-php-agencia:/var/www/html
+      - ../proyecto-php-viajes:/var/www/html
     depends_on:
-      - db
+      db:
+        condition: service_started
   db:
     image: mariadb:11
-    container_name: mariadb-agencia
+    container_name: mariadb-viajes
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -18,12 +19,12 @@ services:
       MYSQL_USER: guia
       MYSQL_PASSWORD: viaje123
     volumes:
-      - ../db-agencia:/var/lib/mysql
+      - ../db-viajes:/var/lib/mysql
     ports:
       - "3320:3306"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin-agencia
+    container_name: phpmyadmin-viajes
     restart: always
     depends_on:
       - db
@@ -35,12 +36,12 @@ services:
       - "8111:80"
   browsersync:
     image: node:20-alpine
-    container_name: browsersync-agencia
+    container_name: browsersync-viajes
     working_dir: /app
     depends_on:
       - web
     volumes:
-      - ../proyecto-php-agencia:/src
+      - ../proyecto-php-viajes:/src
     command: sh -c "npm install -g browser-sync && browser-sync start --proxy 'web:80' --files '/src/**/*.*' --no-ui --host 0.0.0.0 --port 3002"
     ports:
       - "3002:3002"
