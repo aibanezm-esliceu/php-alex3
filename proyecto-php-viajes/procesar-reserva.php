@@ -13,15 +13,15 @@ $missatge = $_POST["missatge"] ?? "";
 require __DIR__ . "/db.php";
 
 try {
-    $sql = "INSERT INTO reservas (nombre_viajero, destino_deseado, correo, mensaje) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO reservas (nombre_viajero, destino_deseado, email, mensaje) VALUES (?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $result = $stmt->execute([$nombre_viajero, $destino_deseado, $email, $missatge]);
+    $result = $stmt->execute([$nombre, $destino, $email, $missatge]);
 
     if ($result) {
         $pageTitle = "Éxito"; 
         require __DIR__ . "/includes/header.php";
         echo "<h1>¡Reserva confirmada!</h1>";
-        echo "<p>Gracias, $nombre_viajero.¡Prepara tu pasaporte!.</p>";
+        echo "<p>Gracias, $nombre.¡Prepara tu pasaporte!.</p>";
         echo "<a href='reserva.php'>Volver</a>";
         require __DIR__ . "/includes/footer.php";
     }
