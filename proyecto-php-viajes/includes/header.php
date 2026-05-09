@@ -1,4 +1,3 @@
-Abre includes/header.php y pega esto:
 
 <!DOCTYPE html>
 <html lang="es">
