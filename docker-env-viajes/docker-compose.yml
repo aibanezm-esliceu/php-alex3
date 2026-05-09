@@ -19,7 +19,7 @@ services:
       MYSQL_USER: guia
       MYSQL_PASSWORD: viaje123
     volumes:
-      - ../db-viajes:/var/lib/mysql
+      - ./db-viajes:/var/lib/mysql
     ports:
       - "3320:3306"
   phpmyadmin:
