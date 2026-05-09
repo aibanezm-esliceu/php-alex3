@@ -3,7 +3,7 @@ services:
     build: .
     container_name: php-web-viajes
     ports:
-      - "81100:80"
+      - "8110:80"
     volumes:
       - ../proyecto-php-viajes:/var/www/html
     depends_on:
