@@ -8,14 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 $nombre = $_POST["nombre_viajero"] ?? "";
 $destino = $_POST["destino_deseado"] ?? "";
 $email = $_POST["email"] ?? "";
-$missatge = $_POST["missatge"] ?? "";
 
 require __DIR__ . "/db.php";
 
 try {
-    $sql = "INSERT INTO reservas (nombre_viajero, destino_deseado, email, mensaje) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO reservas (nombre_viajero, destino_deseado, email) VALUES (?, ?, ?)";
     $stmt = $pdo->prepare($sql);
-    $result = $stmt->execute([$nombre, $destino, $email, $missatge]);
+    $result = $stmt->execute([$nombre, $destino, $email]);
 
     if ($result) {
         $pageTitle = "Éxito"; 
