@@ -4,7 +4,7 @@ require __DIR__ . "/includes/header.php";
 ?>
 
 <h1>Formulario de Contacto</h1>
-<form action="create-contact.php" method="POST" style="display: flex; flex-direction: column; gap: 10px; max-width: 400px;">
+<form action="procesar-reserva.php" method="POST" style="display: flex; flex-direction: column; gap: 10px; max-width: 400px;">
     <label>Nombre Viajero:</label>
     <input type="text" name="nombre_viajero" required>
     
